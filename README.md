@@ -1,2 +1,2 @@
 # Learn-CS-Vue-Tutorial
-test
+Learning Vue 3 using Learn CS's Vue course https://www.youtube.com/watch?v=GP74-OBIIWk
