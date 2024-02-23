@@ -3,6 +3,7 @@
   const showModal = ref(false) // state of showModal is initially set to false
   const newNoteInput = ref('') // state of new note text area
   const notes = ref([]) // state of notes
+  const errorMsg = ref('')
 
   const getRandomColor = () => { // generate random color for each note
     let color = `hsl(${Math.random() * 360}, 100%, 75%)`
@@ -18,8 +19,9 @@
       })
       showModal.value = false
       newNoteInput.value = ''
+      errorMsg.value = ''
     } else {
-      window.alert('Please type something in the text box to add a new note')
+      errorMsg.value = 'Please type something in the text box to add a new note'
     }
   }
 </script>
@@ -31,6 +33,7 @@
         <textarea v-model="newNoteInput" name="note" id="note" cols="30" rows="10"></textarea>
         <button @click="addNote">Add Note</button>
         <button @click="showModal = false" class="close">Close</button>
+        <p>{{ errorMsg }}</p>
       </div>
     </div>
     <div class="container">
@@ -144,5 +147,10 @@
   .modal .close {
     margin-top: 7px;
     background-color: rgb(126, 17, 17);
+  }
+
+  .modal p {
+    text-align: center;
+    color: red;
   }
 </style>
