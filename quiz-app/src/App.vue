@@ -1,8 +1,17 @@
 <script setup>
 import q from "./data/quizes.json"
-import { ref } from "vue"
+import { ref, watch } from "vue"
 
 const quizes = ref(q)
+const search = ref('')
+
+/* watch waits for a change in the state of search 
+and performs a written task after each change in that state*/
+watch(search, () => {
+  quizes.value = q.filter(
+    quiz => quiz.name.toLowerCase().includes(search.value.toLowerCase())
+    ) // filtering quiz list based on which quizes names include whatever is searched
+})
 </script>
 
 <template>
@@ -10,7 +19,7 @@ const quizes = ref(q)
     <div class="container">
       <header>
         <h1>Quizes</h1>
-        <input type="text" placeholder="Search...">
+        <input v-model.trim="search" type="text" placeholder="Search...">
       </header>
       <div class="options-container">
         <div v-for="quiz in quizes" :key="quiz.id" class="card">
