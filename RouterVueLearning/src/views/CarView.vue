@@ -8,6 +8,8 @@
 <template>
     <div>
         <h1>Car View</h1>
-        {{ car }}
+        <p>{{car.name}}</p>
+        <p>{{car.year}}</p>
+        <p>{{car.price}}</p>
     </div>
 </template>
