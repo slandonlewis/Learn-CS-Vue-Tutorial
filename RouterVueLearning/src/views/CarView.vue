@@ -1,7 +1,8 @@
 <script setup>
-    import { useRoute } from "vue-router"
+    import { useRoute, RouterView } from "vue-router"
     import cars from "../data/cars.json"
     const route = useRoute()
+    
     const car = cars.find(c => c.id === parseInt(route.params.id)) // return the car that matches the id in the url
 </script>
 
@@ -11,5 +12,6 @@
         <p>{{car.name}}</p>
         <p>{{car.year}}</p>
         <p>{{car.price}}</p>
+        <RouterView />
     </div>
 </template>

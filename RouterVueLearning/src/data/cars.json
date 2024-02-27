@@ -3,18 +3,30 @@
         "id": 1,
         "name": "Dodge Avenger SXT",
         "price": 2500,
-        "year": 2008
+        "year": 2008,
+        "contact": {
+            "dealer": "Seth Lewis",
+            "number": "123-456-7890"
+        }
     },
     {
         "id": 2,
         "name": "Toyota Camry XLE",
         "price": 9000,
-        "year": 2012
+        "year": 2012,
+        "contact": {
+            "dealer": "Leth Sewis",
+            "number": "098-765-4321"
+        }
     },
     {
         "id": 3,
         "name": "Chevy Malibu",
         "price": 7500,
-        "year": 2015
+        "year": 2015,
+        "contact": {
+            "dealer": "Lewis Seth",
+            "number": "567-890-1234"
+        }
     }
 ]
