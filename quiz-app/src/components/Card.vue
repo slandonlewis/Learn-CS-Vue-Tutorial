@@ -1,12 +1,16 @@
 <script setup>
   import { defineProps } from "vue"
-
+  import { useRouter } from "vue-router"
+  const router = useRouter()
   const {quiz} = defineProps(['quiz']) // defined the quiz prop, which is each quiz that is rendered on the main App component
+  const navigateToQuiz = () => {
+    router.push(`/quiz/${quiz.id}`)
+  }
 </script>
 
 <template>
 <!-- Quiz object data passed in as a prop to the div -->
-    <div class="card">
+    <div class="card" @click="navigateToQuiz">
         <img :src="quiz.img">
         <div class="card-text">
             <h2>{{ quiz.name }}</h2>
