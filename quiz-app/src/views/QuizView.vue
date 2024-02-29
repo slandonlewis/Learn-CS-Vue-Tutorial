@@ -8,7 +8,14 @@
     const route = useRoute()
     const quizId = parseInt(route.params.id)
     const currentQuestionIndex = ref(0)
+    const numberOfCorrectAnswers = ref(0)
     const quiz = quizes.find(q => q.id === quizId)
+    const onOptionSelected = (isCorrect) => {
+        if(isCorrect) {
+            numberOfCorrectAnswers.value++
+        }
+        currentQuestionIndex.value++
+    }
     // const questionStatus = ref(`${currentQuestionIndex.value}/${quiz.questions.length}`)
 
     // watch(() => currentQuestionIndex.value, () => {
@@ -24,9 +31,10 @@
 
 <template>
     <div>
-        <QuizHeader :questionStatus="questionStatus" :barPercentage="barPercentage"/>
+        <QuizHeader :questionStatus="questionStatus" :barPercentage="barPercentage "/>
         <div>
-            <Question :question="quiz.questions[currentQuestionIndex]" />
+            <Question :question="quiz.questions[currentQuestionIndex]" 
+            @selectOption="onOptionSelected"/>
         </div>
         <button @click="currentQuestionIndex++">Next Question</button>
     </div>
